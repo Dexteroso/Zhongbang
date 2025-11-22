@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zhongbang Fine Spinning</title>
+    <!-- Aquí van los google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Raleway:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Boxicons package to use icons w/o downloading them.  ====  https://v2.boxicons.com/-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Aquí va Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- CSS Link-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md bg-light">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Zhongbang <span>Fine Spinning</span></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class='bx bx-menu'></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 header-menu">
+                        <li class="nav-item"><a class="nav-link" data-i18n="menu_inicio" href="index.html"></a> </li>
+                        <li class="nav-item"><a class="nav-link" data-i18n="menu_nosotros" href="about.html"></a></li>
+                        <li class="nav-item"><a class="nav-link" data-i18n="menu_productos" href="products.html"></a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" data-i18n="menu_contacto" href="contact.html"></a></li>
+                        <!-- data-bs-toggle="modal" data-bs-target="#formulario_contacto"></a></li> -->
+                        <div class="lang-switch">
+                            <button onclick="setLanguage('es')">ES</button>
+                            <button onclick="setLanguage('en')">EN</button>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <main>
+        <div class="about_us_info">
+            <h1 class="about_us" data-i18n="about_title"></h1>
+            <img class="map_image" src="images/map.png" alt="hero image">
+            <div class="about_us_content">
+                <p data-i18n="about_text_1"></p>
+                <p data-i18n="about_text_2"></p>
+                <p data-i18n="about_text_3"></p>
+                <p data-i18n="about_text_4"></p>
+                <p data-i18n="about_text_5"></p>
+            </div>
+        </div>
+        <div class="our_history_section">
+            <h1 data-i18n="history_title"></h1>
+            <div class="our_history">
+                <div class="columns">
+                    <img src="images/Screenshot 2025-11-20 at 11.16.51 p.m..png" alt="" width="300px">
+                    <div class="timeline">
+                        <p class="year">2015</p>
+                        <p data-i18n="timeline_header_1" class="title"></p>
+                        <p data-i18n="timeline_content_1" class="info"></p>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="timeline">
+                        <p class="year">2017</p>
+                        <p data-i18n="timeline_header_2" class="title"></p>
+                        <p data-i18n="timeline_content_2" class="info"></p>
+                    </div>
+                    <div class="timeline">
+                        <p class="year">2018</p>
+                        <p data-i18n="timeline_header_3" class="title"></p>
+                        <p data-i18n="timeline_content_3" class="info"></p>
+                    </div>
+                    <div class="timeline">
+                        <p class="year">2020</p>
+                        <p data-i18n="timeline_header_4" class="title"></p>
+                        <p data-i18n="timeline_content_4" class="info"></p>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="timeline">
+                        <p class="year">2023</p>
+                        <p data-i18n="timeline_header_5" class="title"></p>
+                        <p data-i18n="timeline_content_5" class="info"></p>
+                    </div>
+                    <div class="timeline">
+                        <p class="year">2024 +</p>
+                        <p data-i18n="timeline_header_6" class="title"></p>
+                        <p data-i18n="timeline_content_6" class="info"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-child">
+                <div class="footer-child footer-logo">
+                    <h1 class="footer-h1">Zhongbang <br><span>Fine Spinning</span></h1>
+                </div>
+                <div class="footer_menu">
+                    <div class="footer_cat">
+                        <h3>Contacto</h3>
+                        <hr>
+                        <ul>
+                            <li><a href="https://wa.me/528183622215">WhatsApp</a></li>
+                            <li><a data-i18n="footer_email" href="contact.html"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="footer_text">Copyright © 2025 Zhongbang Fine Spinning. Todos los derechos reservados.</p>
+    </footer>
+    <!-- Modal Contacto -->
+    <!-- <div class="modal fade" id="formulario_contacto" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-3">
+                <h1 class="mb-3">Enviar mensaje</h1>
+                <form name="contacto" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contacto">
+                    <label class="form-label">Tu nombre</label>
+                    <input type="text" name="nombre" class="form-control contacto-input mb-2">
+                    <label class="form-label">Tu correo</label>
+                    <input type="email" name="correo" class="form-control contacto-input mb-2">
+                    <label class="form-label">Mensaje</label>
+                    <textarea name="mensaje" class="form-control contacto-input mb-3"></textarea>
+                    <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div> -->
+    <!-- Modal Genérico para Imágenes -->
+    <div class="modal fade" id="modalImagen" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content p-0" style="border-radius: 12px; overflow: hidden;">
+                <button type="button" class="btn-close position-absolute end-0 m-2" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                <img id="modalImg" src="" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.product_img').forEach(img => {
+            img.addEventListener('click', function () {
+                document.getElementById('modalImg').src = this.src;
+            });
+        });
+    </script>
+    <script>
+        /* 1. PLACEHOLDERS — Aquí defines las variables dinámicas como [brand] */
+        const replacements = {
+            "[brand]": "<span class='highlight'>Zhongbang Fine Spinning</span>",
+            "[experience_es]": "<span>más de 10 años de experiencia</span>",
+            "[experience_en]": "<span>over 10 years of industry experience</span>",
+            "[feature_1_en]": "<span>Intelligent R&D:</span>",
+            "[feature_1_es]": "<span>I+D inteligente:</span>",
+            "[feature_2_en]": "<span>Market expansion:</span>",
+            "[feature_2_es]": "<span>Expansión de mercado:</span>",
+            "[feature_3_en]": "<span>Continuous optimization:</span>",
+            "[feature_3_es]": "<span>Optimización continua:</span>"
+        };
+
+        /* 2. FUNCIÓN QUE REEMPLAZA PLACEHOLDERS POR HTML */
+        function applyReplacements(text) {
+            for (const key in replacements) {
+                text = text.replaceAll(key, replacements[key]);
+            }
+            return text;
+        }
+
+        /* 3. FUNCIÓN PRINCIPAL: CARGA EL IDIOMA Y APLICA LOS REEMPLAZOS */
+        function setLanguage(lang) {
+            fetch(`lang/${lang}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelectorAll("[data-i18n]").forEach(el => {
+                        const key = el.getAttribute("data-i18n");
+
+                        if (data[key]) {
+                            // Aquí entran los spans, HTML, placeholders, todo.
+                            el.innerHTML = applyReplacements(data[key]);
+                        }
+                    });
+
+                    localStorage.setItem("lang", lang);
+                });
+        }
+
+        /* 4. AL CARGAR LA PÁGINA, APLICA EL IDIOMA GUARDADO O 'es' */
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem("lang") || "es";
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+
+</html>
