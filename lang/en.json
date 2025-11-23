@@ -62,9 +62,10 @@
     "our_partners_title": "Our Commercial Partners",
     "our_partners_subtitle": "We work with global platforms and companies that require quality, punctuality, and large-scale production.",
     "footer_contact": "Contact",
-    "footer_email": "Send Email",
+    "footer_email": "Contact Us",
     "copyright": "Copyright © 2025 Zhongbang Fine Spinning. All rights reserved.",
     "contact_title": "Learn More About [contact_brand]",
     "contact_content": "Our team is ready to assist you with product development, large-scale production, customized materials, and logistics solutions. Tell us what you need and we’ll help you move your project forward.",
-    "contact_btn": "Send Message"
+    "contact_btn": "Send Email",
+    "privacy_policy":"Privacy Policy"
 }

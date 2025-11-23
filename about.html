@@ -44,8 +44,16 @@
                         <li class="nav-item"><a class="nav-link" data-i18n="menu_contacto" href="contact.html"></a></li>
                         <!-- data-bs-toggle="modal" data-bs-target="#formulario_contacto"></a></li> -->
                         <div class="lang-switch">
-                            <button onclick="setLanguage('es')">ES</button>
-                            <button onclick="setLanguage('en')">EN</button>
+                            <div class="language_switch_container">
+                                <div class="language">
+                                    <img src="images/flags/es.png" alt="spanish flag">
+                                    <button onclick="setLanguage('es')">ES</button>
+                                </div>
+                                <div class="language">
+                                    <img src="images/flags/en.png" alt="english flag">
+                                    <button onclick="setLanguage('en')">EN</button>
+                                </div>
+                            </div>
                         </div>
                     </ul>
                 </div>
@@ -116,17 +124,21 @@
                 </div>
                 <div class="footer_menu">
                     <div class="footer_cat">
-                        <h3>Contacto</h3>
-                        <hr>
+                        <!-- <h3 data-i18n="footer_contact">Contacto</h3> -->
+                        <!-- <hr> -->
                         <ul>
-                            <li><a href="https://wa.me/528183622215">WhatsApp</a></li>
-                            <li><a data-i18n="footer_email" href="contact.html"></a></li>
+                            <li class="footer_cat_title"><a data-i18n="footer_email" href="contact.html"></a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="footer_cat_legal"><a data-i18n="privacy_policy" href="#">Aviso de Privacidad</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <p class="footer_text">Copyright © 2025 Zhongbang Fine Spinning. Todos los derechos reservados.</p>
+        <p data-i18n="copyright" class="footer_text"></p>
     </footer>
     <!-- Modal Contacto -->
     <!-- <div class="modal fade" id="formulario_contacto" tabindex="-1" aria-hidden="true">
@@ -167,6 +179,7 @@
         /* 1. PLACEHOLDERS — Aquí defines las variables dinámicas como [brand] */
         const replacements = {
             "[brand]": "<span class='highlight'>Zhongbang Fine Spinning</span>",
+            "[contact_brand]": "<span class='highlight'>Zhongbang</span>",   
             "[experience_es]": "<span>más de 10 años de experiencia</span>",
             "[experience_en]": "<span>over 10 years of industry experience</span>",
             "[feature_1_en]": "<span>Intelligent R&D:</span>",
@@ -174,7 +187,24 @@
             "[feature_2_en]": "<span>Market expansion:</span>",
             "[feature_2_es]": "<span>Expansión de mercado:</span>",
             "[feature_3_en]": "<span>Continuous optimization:</span>",
-            "[feature_3_es]": "<span>Optimización continua:</span>"
+            "[feature_3_es]": "<span>Optimización continua:</span>",
+            "[production_features_section_line1_span_es]": "<span>13 líneas inteligentes de producción en tiras</span>",
+            "[production_features_section_line2_span_es]": "<span>capacidad diaria de 3,000 piezas</span>",
+            "[production_features_section_line1_span_en]": "<span>13 intelligent strip-based production lines</span>",
+            "[production_features_section_line2_span_en]": "<span>daily capacity of 3,000 units</span>",
+            "[capacity_es]": "<span>capacidad anual superior a 1 millón de piezas,</span>",
+            "[capacity_en]": "<span>annual capacity of over 1 million units,</span>",
+            "[certifications1]": "<span>ISO9001,</span>",
+            "[certifications2_es]": "<span>FDA, CE y CFDA.</span>",
+            "[certifications2_en]": "<span>FDA, CE and CFDA.</span>",
+            "[core_features_section_line3_span_es]": "<span>alta calidad con precios altamente competitivos.</span>",
+            "[core_features_section_line3_span_en]": "<span>high quality with highly competitive pricing.</span>",
+            "[core_features_section_line4_span_es]": "<span>reducir al mínimo los tiempos de entrega.</span>",
+            "[core_features_section_line4_span_en]": "<span>minimize delivery times.</span>",
+            "[core_features_section_line5_span_es]": "<span>soluciones técnicas exclusivas que fortalecen tu marca.</span>",
+            "[core_features_section_line5_span_en]": "<span>exclusive technical solutions that strengthen your brand.</span>",
+            "[core_features_section_line6_span_es]": "<span>asesoría técnica, detección de fallas y respuesta rápida ante cualquier requerimiento.</span>",
+            "[core_features_section_line6_span_en]": "<span>technical consulting, fault detection, and rapid response to any reques.</span>"
         };
 
         /* 2. FUNCIÓN QUE REEMPLAZA PLACEHOLDERS POR HTML */
@@ -186,6 +216,19 @@
         }
 
         /* 3. FUNCIÓN PRINCIPAL: CARGA EL IDIOMA Y APLICA LOS REEMPLAZOS */
+        function updateHeroImage(lang) {
+            const heroImg = document.getElementById("heroImage");
+            if (!heroImg) return;
+
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+            // Construye el nombre del archivo según idioma + tamaño
+            const file = isMobile
+                ? `images/hero/hero_mobile_${lang}.png`
+                : `images/hero/hero_${lang}.png`;
+
+            heroImg.src = file;
+        }
         function setLanguage(lang) {
             fetch(`lang/${lang}.json`)
                 .then(response => response.json())
@@ -194,20 +237,43 @@
                         const key = el.getAttribute("data-i18n");
 
                         if (data[key]) {
-                            // Aquí entran los spans, HTML, placeholders, todo.
                             el.innerHTML = applyReplacements(data[key]);
                         }
                     });
 
+                    updateHeroImage(lang);
+
                     localStorage.setItem("lang", lang);
+
+                    // 🔥 Cerrar menú hamburguesa si está abierto
+                    const navbar = document.getElementById("navbarContent");
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbar);
+                    if (bsCollapse) bsCollapse.hide();
                 });
         }
-
         /* 4. AL CARGAR LA PÁGINA, APLICA EL IDIOMA GUARDADO O 'es' */
         document.addEventListener("DOMContentLoaded", () => {
             const savedLang = localStorage.getItem("lang") || "es";
             setLanguage(savedLang);
+                        updatePartnersImage();
         });
+
+        window.addEventListener("resize", () => {
+            const lang = localStorage.getItem("lang") || "es";
+            updateHeroImage(lang);
+                        updatePartnersImage();
+        });
+
+        function updatePartnersImage() {
+    const partnersImg = document.getElementById("partnersImg");
+    if (!partnersImg) return;
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    partnersImg.src = isMobile
+        ? "images/partners/partners_vertical.png"
+        : "images/partners/partners_horizontal.png";
+}
     </script>
 </body>
 
