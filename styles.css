@@ -974,3 +974,78 @@ footer a {
     }
 
 }
+
+/* Carousel Styles */
+
+.carousel-about_us {
+    padding: 0;
+    width: 90%;
+}
+
+.carousel-inner img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+}
+
+.carousel-about_us img {
+    height: 260px;
+    object-fit: cover;
+    /* border-radius: 10px; */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background: none !important;
+    border: none !important;
+    opacity: 1 !important;
+    color: var(--white-color);
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+}
+
+.carousel .carousel-indicators button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 1px;
+    background-color: transparent;
+    border: solid 2px var(--bg-color);
+}
+
+.carousel .carousel-indicators .active {
+    width: 8px;
+    height: 8px;
+    background-color: var(--white-color);
+}
+
+/* MOBILE — mostrar solo una imagen centrada */
+@media (max-width: 768px) {
+    .carousel-item .row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .carousel-item .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* opcional: elimina espacios que hereda del grid */
+    .carousel-item .col-md-4 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
