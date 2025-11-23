@@ -29,7 +29,9 @@
         <nav class="navbar navbar-expand-md bg-light">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">Zhongbang <span>Fine Spinning</span></a>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo/image3.png" alt="">
+                    </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
                     aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,11 +48,11 @@
                         <div class="lang-switch">
                             <div class="language_switch_container">
                                 <div class="language">
-                                    <img src="images/flags/es.png" alt="spanish flag">
+                                    <img src="images/flags/webp/es.webp" alt="spanish flag">
                                     <button onclick="setLanguage('es')">ES</button>
                                 </div>
                                 <div class="language">
-                                    <img src="images/flags/en.png" alt="english flag">
+                                    <img src="images/flags/webp/en.webp" alt="english flag">
                                     <button onclick="setLanguage('en')">EN</button>
                                 </div>
                             </div>
@@ -62,16 +64,16 @@
 
     </header>
     <main>
-        <img id="heroImage" class="hero_image" src="images/hero_es.png" alt="hero image">
+        <img id="heroImage" class="hero_image" src="images/hero/webp/hero_es.webp" alt="hero image">
         <section class="production_features_section">
             <h1 data-i18n="production_features_section_title"></h1>
             <div class="production_features">
                 <div class="production_details">
                     <p data-i18n="production_features_section_line1" class="production_info"></p>
-                    <img src="images/equipo-preparacion-telas-fabrica-confeccion_508835-2308.avif" alt="">
+                    <img src="images/production/webp/production_6.webp" alt="">
                 </div>
                 <div class="production_details">
-                    <img src="images/1366_2000.jpg" alt="">
+                    <img src="images/production/webp/production_1.webp" alt="">
                     <p data-i18n="production_features_section_line2" class="production_info"></p>
                 </div>
             </div>
@@ -133,7 +135,7 @@
             <h1 data-i18n="our_partners_title"></h1>
             <div class="our_partners_details">
                 <p data-i18n="our_partners_subtitle"></p>
-                <img id="partnersImg" src="images/partners/partners_horizontal.png" alt="">
+                <img id="partnersImg" src="images/partners/webp/partners_horizontal.webp" alt="">
             </div>
         </section>
 
@@ -142,7 +144,9 @@
         <div class="footer-grid">
             <div class="footer-child">
                 <div class="footer-child footer-logo">
-                    <h1 class="footer-h1">Zhongbang <br><span>Fine Spinning</span></h1>
+                    <h1 class="footer-h1">
+                        <img src="images/logo/image3.png" alt="">
+                    </h1>
                 </div>
                 <div class="footer_menu">
                     <div class="footer_cat">
@@ -246,8 +250,8 @@
 
             // Construye el nombre del archivo según idioma + tamaño
             const file = isMobile
-                ? `images/hero/hero_mobile_${lang}.png`
-                : `images/hero/hero_${lang}.png`;
+                ? `images/hero/webp/hero_mobile_${lang}.webp`
+                : `images/hero/webp/hero_${lang}.webp`;
 
             heroImg.src = file;
         }
@@ -293,8 +297,8 @@
             const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
             partnersImg.src = isMobile
-                ? "images/partners/partners_vertical.png"
-                : "images/partners/partners_horizontal.png";
+                ? "images/partners/webp/partners_vertical.webp"
+                : "images/partners/webp/partners_horizontal.webp";
         }
     </script>
 </body>

@@ -1,5 +1,6 @@
 :root {
     --bg-color: #f8f7f3;
+    --white-color: #ffffff;
     --main-text-color2: #faebd7;
     --main-text-color: #294E5D;
     --second-text-color: #666666;
@@ -69,6 +70,21 @@ header * {
     font-weight: 600;
     color: var(--main-text-color);
 }
+
+.navbar-brand img {
+    width: 200px;
+    height: auto;
+
+}
+
+.footer-logo img {
+    margin: 0 0 20px 0;
+    width: 250px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.footer-logo {}
 
 .navbar-header {
     margin-top: 0;
@@ -343,7 +359,7 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
     color: var(--bg-color);
-    background-color: #fff;
+    background-color: var(--white-color);
 }
 
 .our_partners_section {
@@ -370,7 +386,7 @@ body {
 .core_details {
     border-radius: 15px;
     box-shadow: 5px 5px 10px var(--shadow-color);
-    background-color: #fff;
+    background-color: var(--white-color);
 }
 
 .core_info {
@@ -455,7 +471,7 @@ body {
 }
 
 .production_details span {
-    color: var(--main-text-color);
+    color: var(--button-color);
     font-weight: bolder;
     font-size: 22px;
 }
@@ -522,6 +538,7 @@ ul {
     margin: 0;
     text-align: center;
 }
+
 /* 
 h3::not(.features_list) {
     font-size: 1.8rem;
@@ -535,12 +552,17 @@ a {
     text-align: center;
 }
 
+.footer_cat_title a,
+.footer_cat_legal a {
+    color: var(--white-color);
+}
+
 a:hover {
     color: var(--second-text-color);
 }
 
 p.footer_text {
-    color: var(--main-text-color2);
+    color: var(--white-color);
     text-align: center;
     font-size: 1rem;
 }
@@ -579,10 +601,6 @@ footer a {
     justify-self: center;
 } */
 
-.footer-logo {
-    margin: 0 0 20px 0;
-    text-align: center;
-}
 
 .footer-h1 {
     font-size: 2.5rem;
@@ -605,7 +623,7 @@ footer a {
 }
 
 .form-control {
-    background-color: #fff;
+    background-color: var(--white-color);
     width: 80%;
     margin: 10px auto;
     /* esto lo centra */
@@ -757,7 +775,7 @@ footer a {
     width: 300px;
     padding: 10px;
     box-shadow: 4px 4px 10px var(--shadow-color);
-    background-color: #fff;
+    background-color: var(--white-color);
     border-radius: 15px;
 }
 
@@ -786,7 +804,7 @@ footer a {
     flex-direction: row;
     gap: 30px;
     justify-content: center;
-    background-color: #fff;
+    background-color: var(--white-color);
     padding: 20px 0;
     flex-wrap: wrap;
 }
@@ -842,7 +860,7 @@ footer a {
 
 .our_history_section {
     padding-top: 10px;
-    background-color: #fff;
+    background-color: var(--white-color);
 }
 
 
@@ -915,7 +933,7 @@ footer a {
     border: none;
     padding: 5px 15px;
     border-radius: 15px;
-    color: #fff;
+    color: var(--white-color);
     font-weight: 600;
 }
 
@@ -951,8 +969,8 @@ footer a {
         margin-left: 0;
     }
 
-.feature_details {
-    width: 80vw;
-}
+    .feature_details {
+        width: 80vw;
+    }
 
 }
