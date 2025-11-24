@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -43,18 +43,21 @@
                         <li class="nav-item"><a class="nav-link" data-i18n="menu_nosotros" href="about.html"></a></li>
                         <li class="nav-item"><a class="nav-link" data-i18n="menu_productos" href="products.html"></a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" data-i18n="menu_contacto" href="contact.html"></a></li>
+                        <li class="nav-item active"><a class="nav-link" data-i18n="menu_contacto" href="contact.html"></a></li>
                         <!-- data-bs-toggle="modal" data-bs-target="#formulario_contacto"></a></li> -->
                         <div class="lang-switch">
                             <div class="language_switch_container">
-                                <div class="language">
+
+                                <button class="language" onclick="setLanguage('es')">
                                     <img src="images/flags/webp/es.webp" alt="spanish flag">
-                                    <button onclick="setLanguage('es')">ES</button>
-                                </div>
-                                <div class="language">
+                                    <span>ES</span>
+                                </button>
+
+                                <button class="language" onclick="setLanguage('en')">
                                     <img src="images/flags/webp/en.webp" alt="english flag">
-                                    <button onclick="setLanguage('en')">EN</button>
-                                </div>
+                                    <span>EN</span>
+                                </button>
+
                             </div>
                         </div>
                     </ul>
@@ -89,7 +92,8 @@
                     </div>
                     <div>
                         <ul>
-                            <li class="footer_cat_legal"><a data-i18n="privacy_policy" href="#">Aviso de Privacidad</a></li>
+                            <li id="privacyLink" class="footer_cat_legal"><a data-i18n="privacy_policy"
+                                    href="privacy_es.html"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -97,24 +101,6 @@
         </div>
         <p data-i18n="copyright" class="footer_text"></p>
     </footer>
-    <!-- Modal Contacto -->
-    <!-- <div class="modal fade" id="formulario_contacto" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content p-3">
-                <h1 class="mb-3">Enviar mensaje</h1>
-                <form name="contacto" method="POST" data-netlify="true">
-                    <input type="hidden" name="form-name" value="contacto">
-                    <label class="form-label">Tu nombre</label>
-                    <input type="text" name="nombre" class="form-control contacto-input mb-2">
-                    <label class="form-label">Tu correo</label>
-                    <input type="email" name="correo" class="form-control contacto-input mb-2">
-                    <label class="form-label">Mensaje</label>
-                    <textarea name="mensaje" class="form-control contacto-input mb-3"></textarea>
-                    <button type="submit" class="btn btn-primary w-100">Enviar</button>
-                </form>
-            </div>
-        </div>
-    </div> -->
     <!-- Modal Genérico para Imágenes -->
     <div class="modal fade" id="modalImagen" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -133,10 +119,12 @@
         });
     </script>
     <script>
-        /* 1. PLACEHOLDERS — Aquí defines las variables dinámicas como [brand] */
+        /* ===============================
+           1. PLACEHOLDERS (sin cambios)
+        ================================ */
         const replacements = {
             "[brand]": "<span class='highlight'>Zhongbang Fine Spinning</span>",
-            "[contact_brand]": "<span class='highlight'>Zhongbang</span>",            
+            "[contact_brand]": "<span class='highlight'>Zhongbang</span>",
             "[experience_es]": "<span>más de 10 años de experiencia</span>",
             "[experience_en]": "<span>over 10 years of industry experience</span>",
             "[feature_1_en]": "<span>Intelligent R&D:</span>",
@@ -161,10 +149,9 @@
             "[core_features_section_line5_span_es]": "<span>soluciones técnicas exclusivas que fortalecen tu marca.</span>",
             "[core_features_section_line5_span_en]": "<span>exclusive technical solutions that strengthen your brand.</span>",
             "[core_features_section_line6_span_es]": "<span>asesoría técnica, detección de fallas y respuesta rápida ante cualquier requerimiento.</span>",
-            "[core_features_section_line6_span_en]": "<span>technical consulting, fault detection, and rapid response to any reques.</span>"
+            "[core_features_section_line6_span_en]": "<span>technical consulting, fault detection, and rapid response to any request.</span>"
         };
 
-        /* 2. FUNCIÓN QUE REEMPLAZA PLACEHOLDERS POR HTML */
         function applyReplacements(text) {
             for (const key in replacements) {
                 text = text.replaceAll(key, replacements[key]);
@@ -172,24 +159,36 @@
             return text;
         }
 
-        /* 3. FUNCIÓN PRINCIPAL: CARGA EL IDIOMA Y APLICA LOS REEMPLAZOS */
+        /* ===============================
+           2. UPDATE HERO IMAGE (sin cambios)
+        ================================ */
         function updateHeroImage(lang) {
             const heroImg = document.getElementById("heroImage");
             if (!heroImg) return;
 
             const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-            // Construye el nombre del archivo según idioma + tamaño
             const file = isMobile
-                ? `images/hero/hero_mobile_${lang}.png`
-                : `images/hero/hero_${lang}.png`;
+                ? `images/hero/webp/hero_mobile_${lang}.webp`
+                : `images/hero/webp/hero_${lang}.webp`;
 
             heroImg.src = file;
         }
+
+        /* ===============================
+           3. CARGAR IDIOMA — AHORA ESTÁ CORRECTO
+        ================================ */
         function setLanguage(lang) {
+
+            // Guardamos el idioma inmediatamente para evitar que rebote
+            localStorage.setItem("lang", lang);
+
+            // Cargar archivo JSON
             fetch(`lang/${lang}.json`)
                 .then(response => response.json())
                 .then(data => {
+
+                    // Reemplazar texto en pantalla
                     document.querySelectorAll("[data-i18n]").forEach(el => {
                         const key = el.getAttribute("data-i18n");
 
@@ -199,38 +198,58 @@
                     });
 
                     updateHeroImage(lang);
+                    updatePartnersImage();
 
-                    localStorage.setItem("lang", lang);
-
-                    // 🔥 Cerrar menú hamburguesa si está abierto
+                    // cerrar menú hamburguesa si está abierto
                     const navbar = document.getElementById("navbarContent");
                     const bsCollapse = bootstrap.Collapse.getInstance(navbar);
                     if (bsCollapse) bsCollapse.hide();
                 });
         }
-        /* 4. AL CARGAR LA PÁGINA, APLICA EL IDIOMA GUARDADO O 'es' */
+
+        /* ===============================
+           4. ON LOAD: CARGAR IDIOMA UNA SOLA VEZ
+        ================================ */
         document.addEventListener("DOMContentLoaded", () => {
             const savedLang = localStorage.getItem("lang") || "es";
             setLanguage(savedLang);
-                        updatePartnersImage();
+            updatePartnersImage();
         });
+
+        /* ===============================
+           5. CAMBIO DE IMAGEN PARTNERS (sin cambios)
+        ================================ */
+        function updatePartnersImage() {
+            const partnersImg = document.getElementById("partnersImg");
+            if (!partnersImg) return;
+
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+            partnersImg.src = isMobile
+                ? "images/partners/webp/partners_vertical.webp"
+                : "images/partners/webp/partners_horizontal.webp";
+        }
 
         window.addEventListener("resize", () => {
             const lang = localStorage.getItem("lang") || "es";
             updateHeroImage(lang);
-                        updatePartnersImage();
+            updatePartnersImage();
         });
 
-        function updatePartnersImage() {
-    const partnersImg = document.getElementById("partnersImg");
-    if (!partnersImg) return;
+        /* ===============================
+           6. PRIVACY LINK — AHORA ESTÁ 100% FIJO
+        ================================ */
+        document.getElementById("privacyLink")?.addEventListener("click", (e) => {
+            e.preventDefault();
 
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+            const lang = localStorage.getItem("lang") || "es";
 
-    partnersImg.src = isMobile
-        ? "images/partners/partners_vertical.png"
-        : "images/partners/partners_horizontal.png";
-}
+            // NO alterna más. Se mantiene constante.
+            window.location.href = lang === "en"
+                ? "privacy_en.html"
+                : "privacy_es.html";
+        });
     </script>
 </body>
+
 </html>

@@ -369,7 +369,8 @@ body {
 
 .production_features_section h1,
 .our_partners_section h1,
-.product_features h1 {
+.product_features h1,
+.privacy_policy h1 {
     margin: 0 20px;
     color: var(--main-text-color);
     font-weight: 700;
@@ -690,7 +691,7 @@ footer a {
 
 .about_us_info p {
     padding: 0 30px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .about_us_info span {
@@ -750,7 +751,7 @@ footer a {
 
 .product_features p {
     margin: 0;
-    padding: 0 50px;
+    padding: 20px 50px;
 }
 
 .features_list {
@@ -764,10 +765,12 @@ footer a {
 
 .features_list h3 {
     font-size: 18px;
+    font-weight: 700;
+    color: var(--main-text-color);
 }
 
 .features_list li {
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .feature_details {
@@ -824,23 +827,25 @@ footer a {
     padding: 0 20px;
 }
 
-.timeline p {
+.info {
     margin: 0;
     padding: 10px 0 5px;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .title {
     color: var(--main-text-color);
     font-weight: 700;
+    font-size: 17px;
+    padding-top: 10px;
 }
 
 .timeline .year {
-    font-size: 12px;
+    font-size: 15px;
     background-color: #00B14F;
     width: 70px;
     margin: 0;
-    padding: 0;
+    padding: 0 10px;
     border-radius: 50px;
     color: var(--bg-color);
 }
@@ -1047,5 +1052,101 @@ footer a {
     .carousel-item .col-md-4 {
         padding-left: 0;
         padding-right: 0;
+    }
+}
+
+
+.privacy_policy {
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .privacy_policy {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+.privacy_policy h1 {
+    padding-bottom: 30px;
+}
+
+.privacy_policy_content,
+.privacy_policy_contact {
+    padding: 10px 20px;
+}
+
+.privacy_policy_content h2,
+.privacy_policy_contact h2 {
+    color: var(--main-text-color);
+    font-weight: 700;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.privacy_policy_content p,
+.privacy_policy_content li,
+.privacy_policy_contact p,
+.privacy_policy_contact li {
+    font-size: 12px;
+}
+
+.privacy_policy_content p,
+.privacy_policy_contact p {
+    text-align: left;
+    padding-top: 10px;
+}
+
+.privacy_policy_content li {
+    padding-left: 10px;
+}
+
+.privacy_policy_content ul {
+    list-style: disc;
+    padding-left: 50px;
+    text-align: left;
+}
+
+.privacy_policy_contact ul {
+    list-style: none;
+    padding-left: 80px;
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .privacy_policy_contact ul {
+        padding-left: 20px;
+    }
+}
+
+.privacy_policy_contact a {
+    color: #000
+}
+
+.privacy_brand {
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    #navbarContent {
+        background-color: var(--bg-color);
+        padding: 15px;
+        border-radius: 0 0 8px 8px;
+    }
+
+    #navbarContent .nav-link {
+        padding: 10px 0;
+        font-size: 1.4rem !important;
+        display: block;
+    }
+
+    .header-menu .nav-item .nav-link:active,
+    .header-menu .nav-item .nav-link:focus {
+        background-color: var(--main-text-color);
+        color: #fff !important;
+        border-radius: 6px;
+        padding-left: 10px;
     }
 }
